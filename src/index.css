@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f0a05;
+    color: #f0e6d6;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+@layer components {
+  .turkish-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d9a82e' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #d9a82e 0%, #c9941a 50%, #a87612 100%);
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, #f0d999 0%, #d9a82e 50%, #e6bf5f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: rgba(42, 31, 18, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(217, 168, 46, 0.15);
+  }
+
+  .ornament-border {
+    position: relative;
+  }
+  .ornament-border::before,
+  .ornament-border::after {
+    content: '✦';
+    position: absolute;
+    color: #d9a82e;
+    font-size: 1.2rem;
+    opacity: 0.6;
+  }
+  .ornament-border::before {
+    left: -24px;
+  }
+  .ornament-border::after {
+    right: -24px;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center gold-text mb-2;
+  }
+
+  .section-subtitle {
+    @apply text-center text-coffee-300 text-sm tracking-widest uppercase mb-12;
+  }
+
+  .btn-gold {
+    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+    background: linear-gradient(135deg, #d9a82e 0%, #a87612 100%);
+    color: #0f0a05;
+  }
+  .btn-gold:hover {
+    background: linear-gradient(135deg, #e6bf5f 0%, #c9941a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(217, 168, 46, 0.3);
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 rounded-lg font-semibold border-2 transition-all duration-300;
+    border-color: #d9a82e;
+    color: #d9a82e;
+  }
+  .btn-outline:hover {
+    background: rgba(217, 168, 46, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .input-turkish {
+    @apply w-full px-4 py-3 rounded-lg bg-dark-800 border border-coffee-700 text-coffee-100 placeholder-coffee-500 focus:outline-none focus:border-gold-400 transition-colors;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  .text-shadow-gold {
+    text-shadow: 0 2px 10px rgba(217, 168, 46, 0.3);
+  }
+}
