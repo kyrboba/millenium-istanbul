@@ -6,18 +6,22 @@ export interface CartItem {
   quantity: number;
 }
 
-interface CartContextType {
-  cart: CartItem[];
-  addToCart: (item: { name: string; price: number }, quantity: number) => void;
+interface AddItem {
+  name: string;
+  price: number;
 }
 
-// Создаем контекст с начальным значением null, но типизируем его
+interface CartContextType {
+  cart: CartItem[];
+  addToCart: (item: AddItem, quantity: number) => void;
+}
+
 export const CartContext = createContext<CartContextType | null>(null);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  const addToCart = (item: { name: string; price: number }, quantity: number) => {
+  const addToCart = (item: AddItem, quantity: number) => {
     if (quantity > 0) {
       setCart((prev) => [...prev, { ...item, quantity }]);
     }
