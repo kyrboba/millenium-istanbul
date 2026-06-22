@@ -1,7 +1,7 @@
 // src/context/CartContext.tsx
 import { createContext, useState, ReactNode } from 'react';
 
-interface CartItem {
+export interface CartItem {
   name: string;
   price: number;
   quantity: number;
@@ -19,7 +19,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const addToCart = (item: { name: string; price: number }, quantity: number) => {
     if (quantity > 0) {
-      setCart((prev) => [...prev, { ...item, quantity }]);
+      setCart(prev => [...prev, { ...item, quantity }]);
     }
   };
 
