@@ -35,7 +35,7 @@ export default function Footer() {
             <h4 className="text-coffee-100 font-semibold mb-3">Связаться</h4>
             <a href="tel:+37312345678" className="flex items-center justify-center md:justify-end gap-2 text-gold-400 hover:text-gold-300 text-sm mb-3 transition-colors">
               <Phone size={14} />
-              +373 123 456 78
+              +373 687 96 105
             </a>
             <div className="flex items-center justify-center md:justify-end gap-3">
               <a href="#" className="w-9 h-9 rounded-lg bg-dark-800 border border-gold-400/20 flex items-center justify-center text-coffee-400 hover:text-gold-400 hover:border-gold-400/40 transition-all">

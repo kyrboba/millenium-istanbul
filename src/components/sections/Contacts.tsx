@@ -57,11 +57,11 @@ export default function Contacts() {
                   <div className="space-y-1 text-sm">
                     <div className="flex justify-between text-coffee-300">
                       <span>Понедельник — Пятница</span>
-                      <span className="text-gold-400">10:00 — 23:00</span>
+                      <span className="text-gold-400">08:30 — 23:00</span>
                     </div>
                     <div className="flex justify-between text-coffee-300">
                       <span>Суббота — Воскресенье</span>
-                      <span className="text-gold-400">10:00 — 00:00</span>
+                      <span className="text-gold-400">08:30 — 00:00</span>
                     </div>
                   </div>
                 </div>
