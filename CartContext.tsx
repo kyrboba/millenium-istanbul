@@ -1,4 +1,3 @@
-// src/context/CartContext.tsx
 import { createContext, useState, ReactNode } from 'react';
 
 export interface CartItem {
@@ -12,6 +11,7 @@ interface CartContextType {
   addToCart: (item: { name: string; price: number }, quantity: number) => void;
 }
 
+// Создаем контекст с начальным значением null, но типизируем его
 export const CartContext = createContext<CartContextType | null>(null);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
@@ -19,7 +19,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const addToCart = (item: { name: string; price: number }, quantity: number) => {
     if (quantity > 0) {
-      setCart(prev => [...prev, { ...item, quantity }]);
+      setCart((prev) => [...prev, { ...item, quantity }]);
     }
   };
 

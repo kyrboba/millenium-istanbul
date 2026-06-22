@@ -2,8 +2,16 @@ import { useState, useContext, FormEvent } from 'react';
 import { CartContext } from '../../context/CartContext';
 
 export default function Delivery() {
-  const { cart } = useContext(CartContext)!;
+  // Безопасно получаем контекст
+  const context = useContext(CartContext);
   const [submitted, setSubmitted] = useState(false);
+
+  // Если контекст недоступен, показываем заглушку
+  if (!context) {
+    return <section className="py-20 text-center text-white">Загрузка корзины...</section>;
+  }
+
+  const { cart } = context;
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -16,7 +24,7 @@ export default function Delivery() {
       body: new URLSearchParams(formData as any).toString(),
     })
       .then(() => setSubmitted(true))
-      .catch((error) => alert('Ошибка: ' + error));
+      .catch((error) => alert('Ошибка при отправке: ' + error));
   };
 
   return (
@@ -50,20 +58,20 @@ export default function Delivery() {
           ) : (
             <form name="delivery-order" method="POST" data-netlify="true" onSubmit={handleSubmit} className="space-y-4">
               <input type="hidden" name="form-name" value="delivery-order" />
-              {/* Скрытое поле с составом заказа */}
+              {/* Скрытое поле с JSON корзины */}
               <input type="hidden" name="order-details" value={JSON.stringify(cart)} />
 
               <div>
-                <label className="text-sm text-gray-400">Адрес доставки</label>
-                <input type="text" name="address" required className="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 text-white" />
+                <label className="block text-sm text-gray-400 mb-1">Адрес доставки</label>
+                <input type="text" name="address" required className="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 outline-none" />
               </div>
               <div>
-                <label className="text-sm text-gray-400">Ваше имя</label>
-                <input type="text" name="customer-name" required className="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 text-white" />
+                <label className="block text-sm text-gray-400 mb-1">Ваше имя</label>
+                <input type="text" name="customer-name" required className="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 outline-none" />
               </div>
               <div>
-                <label className="text-sm text-gray-400">Телефон</label>
-                <input type="tel" name="phone" required className="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 text-white" />
+                <label className="block text-sm text-gray-400 mb-1">Телефон</label>
+                <input type="tel" name="phone" required className="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 outline-none" />
               </div>
 
               <button type="submit" className="w-full bg-yellow-500 py-3 rounded-lg font-bold text-black hover:bg-yellow-400 transition">
