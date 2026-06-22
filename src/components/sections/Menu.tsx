@@ -1,15 +1,4 @@
-import { useContext } from 'react';
-import { CartContext } from './CartContext'; 
-
-export default function Menu() {
-  const context = useContext(CartContext);
-
-  if (!context) {
-    return <section className="py-20 text-center text-white">Меню не загружено</section>;
-  }
-
-  const { addToCart } = context;
-
+export default function Menu({ onAddToCart }: { onAddToCart: (item: any) => void }) {
   const menuItems = [
     { id: 1, name: 'Кебаб', price: 80 },
     { id: 2, name: 'Лахмаджун', price: 60 },
@@ -26,8 +15,7 @@ export default function Menu() {
               <h3 className="text-xl font-bold mb-2">{item.name}</h3>
               <p className="text-yellow-500 mb-4">{item.price} лей</p>
               <button 
-                // Исправлено: передаем два аргумента (товар и количество)
-                onClick={() => addToCart(item, 1)} 
+                onClick={() => onAddToCart(item)}
                 className="w-full bg-yellow-500 py-2 rounded-lg font-bold text-black hover:bg-yellow-400 transition"
               >
                 В корзину

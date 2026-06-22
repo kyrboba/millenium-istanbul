@@ -1,30 +1,22 @@
 import { createContext, useState, ReactNode } from 'react';
 
-export interface CartItem {
+// Определяем типы для товара
+interface CartItem {
+  id: number;
   name: string;
   price: number;
   quantity: number;
 }
 
-interface AddItem {
-  name: string;
-  price: number;
-}
+// Создаем контекст
+export const CartContext = createContext<any>(null);
 
-interface CartContextType {
-  cart: CartItem[];
-  addToCart: (item: AddItem, quantity: number) => void;
-}
-
-export const CartContext = createContext<CartContextType | null>(null);
-
+// Создаем провайдер
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  const addToCart = (item: AddItem, quantity: number) => {
-    if (quantity > 0) {
-      setCart((prev) => [...prev, { ...item, quantity }]);
-    }
+  const addToCart = (item: any, quantity: number) => {
+    setCart((prev) => [...prev, { ...item, quantity }]);
   };
 
   return (

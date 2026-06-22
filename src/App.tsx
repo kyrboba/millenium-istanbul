@@ -32,9 +32,11 @@ function App() {
       <Header />
       <main>
         <Hero />
+        {/* Передаем функцию добавления в корзину */}
         <Menu onAddToCart={handleAddToCart} />
         <Booking />
-        <Delivery cart={cart} onUpdateCart={setCart} />
+        {/* Передаем корзину в Delivery */}
+        <Delivery cart={cart} />
         <Reviews />
         <Contacts />
       </main>

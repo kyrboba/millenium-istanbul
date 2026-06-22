@@ -1,16 +1,7 @@
-import { useState, useContext, FormEvent } from 'react';
-import { CartContext } from './CartContext';
+import { useState, FormEvent } from 'react';
 
-export default function Delivery() {
-  const context = useContext(CartContext);
+export default function Delivery({ cart }: { cart: any[] }) {
   const [submitted, setSubmitted] = useState(false);
-
-  // Если контекст отсутствует, ничего не ломается
-  if (!context) {
-    return <section className="py-20 text-center text-white">Корзина не загружена</section>;
-  }
-
-  const { cart } = context;
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
