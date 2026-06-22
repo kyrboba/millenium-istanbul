@@ -18,7 +18,8 @@ export default function Delivery({ cart }: { cart: any[] }) {
   };
 
   return (
-    <section id="delivery" className="py-20 bg-gradient-to-br from-dark-900 via-dark-800 to-bordeaux-950 text-white px-4">
+    // Убрали bg-gradient-to-br, теперь секция прозрачная
+    <section id="delivery" className="py-20 px-4">
       <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
         {/* Корзина */}
         <div className="bg-dark-800/50 p-8 rounded-2xl border border-gold-500/10">

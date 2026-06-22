@@ -19,7 +19,8 @@ export default function Booking() {
   };
 
   return (
-    <section id="booking" className="py-20 bg-gradient-to-br from-dark-900 via-dark-800 to-bordeaux-950 text-white px-4">
+    // Убрали bg-gradient-to-br, теперь фон прозрачный
+    <section id="booking" className="py-20 px-4">
       <div className="max-w-xl mx-auto">
         <h2 className="text-3xl font-bold text-gold-500 text-center mb-8">Бронирование столика</h2>
 
@@ -28,7 +29,7 @@ export default function Booking() {
             <svg className="w-16 h-16 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            <h3 className="text-2xl font-bold mb-2">Столик забронирован!</h3>
+            <h3 className="text-2xl font-bold mb-2 text-white">Столик забронирован!</h3>
             <p className="text-coffee-200">Мы свяжемся с вами в ближайшее время.</p>
           </div>
         ) : (

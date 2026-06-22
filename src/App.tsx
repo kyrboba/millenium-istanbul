@@ -28,14 +28,13 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-dark-900 text-coffee-100">
+    // Глобальный градиентный фон для всего сайта
+    <div className="min-h-screen bg-gradient-to-br from-dark-900 via-dark-800 to-bordeaux-950 text-coffee-100">
       <Header />
       <main>
         <Hero />
-        {/* Передаем функцию добавления в корзину */}
         <Menu onAddToCart={handleAddToCart} />
         <Booking />
-        {/* Передаем корзину в Delivery */}
         <Delivery cart={cart} />
         <Reviews />
         <Contacts />

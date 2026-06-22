@@ -3,11 +3,11 @@ import ScrollReveal from '../ui/ScrollReveal';
 
 export default function Contacts() {
   return (
-    <section id="contacts" className="py-20 md:py-28 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-800 via-bordeaux-950/15 to-dark-900" />
+    // Убрали bg-gradient-to-b, секция стала прозрачной
+    <section id="contacts" className="py-20 md:py-28 relative px-4">
       <div className="absolute inset-0 turkish-pattern opacity-15" />
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-6xl mx-auto">
         <ScrollReveal>
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-2">
@@ -15,8 +15,8 @@ export default function Contacts() {
               <MapPin size={20} className="text-gold-400" />
               <div className="h-px w-12 bg-gold-400/40" />
             </div>
-            <h2 className="section-title">Контакты</h2>
-            <p className="section-subtitle">Мы ждём вас</p>
+            <h2 className="text-3xl font-bold text-gold-500">Контакты</h2>
+            <p className="text-coffee-300 mt-2">Мы ждём вас</p>
           </div>
         </ScrollReveal>
 
@@ -24,7 +24,7 @@ export default function Contacts() {
           {/* Info cards */}
           <ScrollReveal delay={0.1}>
             <div className="space-y-4">
-              <div className="glass-card rounded-xl p-6 flex items-start gap-4">
+              <div className="bg-dark-800/40 backdrop-blur-sm rounded-xl p-6 flex items-start gap-4 border border-gold-500/10">
                 <div className="w-12 h-12 rounded-lg bg-gold-400/10 border border-gold-400/20 flex items-center justify-center shrink-0">
                   <MapPin size={22} className="text-gold-400" />
                 </div>
@@ -35,7 +35,7 @@ export default function Contacts() {
                 </div>
               </div>
 
-              <div className="glass-card rounded-xl p-6 flex items-start gap-4">
+              <div className="bg-dark-800/40 backdrop-blur-sm rounded-xl p-6 flex items-start gap-4 border border-gold-500/10">
                 <div className="w-12 h-12 rounded-lg bg-gold-400/10 border border-gold-400/20 flex items-center justify-center shrink-0">
                   <Phone size={22} className="text-gold-400" />
                 </div>
@@ -48,7 +48,7 @@ export default function Contacts() {
                 </div>
               </div>
 
-              <div className="glass-card rounded-xl p-6 flex items-start gap-4">
+              <div className="bg-dark-800/40 backdrop-blur-sm rounded-xl p-6 flex items-start gap-4 border border-gold-500/10">
                 <div className="w-12 h-12 rounded-lg bg-gold-400/10 border border-gold-400/20 flex items-center justify-center shrink-0">
                   <Clock size={22} className="text-gold-400" />
                 </div>
@@ -56,18 +56,18 @@ export default function Contacts() {
                   <h3 className="font-semibold text-coffee-100 mb-1">Часы работы</h3>
                   <div className="space-y-1 text-sm">
                     <div className="flex justify-between text-coffee-300">
-                      <span>Понедельник — Пятница</span>
+                      <span>Пн — Пт</span>
                       <span className="text-gold-400">08:30 — 23:00</span>
                     </div>
                     <div className="flex justify-between text-coffee-300">
-                      <span>Суббота — Воскресенье</span>
+                      <span>Сб — Вс</span>
                       <span className="text-gold-400">08:30 — 00:00</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="glass-card rounded-xl p-6 flex items-start gap-4">
+              <div className="bg-dark-800/40 backdrop-blur-sm rounded-xl p-6 flex items-start gap-4 border border-gold-500/10">
                 <div className="w-12 h-12 rounded-lg bg-gold-400/10 border border-gold-400/20 flex items-center justify-center shrink-0">
                   <Mail size={22} className="text-gold-400" />
                 </div>
@@ -83,23 +83,20 @@ export default function Contacts() {
 
           {/* Map placeholder */}
           <ScrollReveal delay={0.2}>
-            <div className="glass-card rounded-2xl p-1 h-full min-h-[300px] lg:min-h-0">
-              <div className="w-full h-full min-h-[300px] rounded-xl bg-dark-800 border border-gold-400/10 flex flex-col items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 turkish-pattern opacity-10" />
-                <MapPin size={48} className="text-gold-400/40 mb-3" />
-                <p className="text-coffee-400 font-medium">Интерактивная карта</p>
-                <p className="text-coffee-600 text-sm mt-1">ул. Карла Маркса 67, Бессарабка</p>
-                <p className="text-coffee-700 text-xs mt-4">(заглушка для карты)</p>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Бессарабка,+ул.+Карла+Маркса+67"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-outline w-full text-center text-sm inline-block"
-                  >
-                    Открыть в Google Maps
-                  </a>
-                </div>
+            <div className="bg-dark-800/40 backdrop-blur-sm rounded-2xl p-1 h-full min-h-[300px] border border-gold-500/10 flex flex-col items-center justify-center relative overflow-hidden">
+              <div className="absolute inset-0 turkish-pattern opacity-10" />
+              <MapPin size={48} className="text-gold-400/40 mb-3" />
+              <p className="text-coffee-400 font-medium">Интерактивная карта</p>
+              <p className="text-coffee-600 text-sm mt-1">ул. Карла Маркса 67, Бессарабка</p>
+              <div className="absolute bottom-6 left-6 right-6">
+                <a
+                  href="https://www.google.com/maps"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full py-3 text-center bg-transparent border border-gold-500/30 text-gold-500 rounded-lg text-sm font-semibold hover:bg-gold-500/10 transition"
+                >
+                  Открыть в Google Maps
+                </a>
               </div>
             </div>
           </ScrollReveal>

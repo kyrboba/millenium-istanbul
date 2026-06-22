@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, Send, MessageSquare, User, X } from 'lucide-react';
+import { Star, Send, MessageSquare, User } from 'lucide-react';
 import ScrollReveal from '../ui/ScrollReveal';
 
 interface Review {
@@ -47,11 +47,11 @@ export default function Reviews() {
   };
 
   return (
-    <section id="reviews" className="py-20 md:py-28 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900" />
-      <div className="absolute inset-0 turkish-pattern opacity-20" />
+    // Убран жесткий градиент фона, секция теперь прозрачна
+    <section id="reviews" className="py-20 md:py-28 relative px-4">
+      <div className="absolute inset-0 turkish-pattern opacity-10" />
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-6xl mx-auto">
         <ScrollReveal>
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-2">
@@ -59,8 +59,8 @@ export default function Reviews() {
               <MessageSquare size={20} className="text-gold-400" />
               <div className="h-px w-12 bg-gold-400/40" />
             </div>
-            <h2 className="section-title">Отзывы и пожелания</h2>
-            <p className="section-subtitle">Ваше мнение важно для нас</p>
+            <h2 className="text-3xl font-bold text-gold-500">Отзывы и пожелания</h2>
+            <p className="text-coffee-300 mt-2">Ваше мнение важно для нас</p>
           </div>
         </ScrollReveal>
 
@@ -76,7 +76,7 @@ export default function Reviews() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ delay: idx * 0.05 }}
-                    className="glass-card rounded-xl p-5"
+                    className="bg-dark-800/40 backdrop-blur-sm rounded-xl p-5 border border-gold-500/10"
                   >
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400/20 to-turquoise-500/20 flex items-center justify-center shrink-0 border border-gold-400/20">
@@ -107,7 +107,7 @@ export default function Reviews() {
 
           {/* Feedback form */}
           <ScrollReveal delay={0.2}>
-            <div className="glass-card rounded-2xl p-6">
+            <div className="bg-dark-800/40 backdrop-blur-sm rounded-2xl p-6 border border-gold-500/10">
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -117,7 +117,7 @@ export default function Reviews() {
                   <div className="w-16 h-16 rounded-full bg-gold-400/15 border border-gold-400/20 flex items-center justify-center mx-auto mb-4">
                     <Send className="w-8 h-8 text-gold-400" />
                   </div>
-                  <h3 className="text-xl font-bold gold-text mb-2">Спасибо за отзыв!</h3>
+                  <h3 className="text-xl font-bold text-gold-400 mb-2">Спасибо за отзыв!</h3>
                   <p className="text-coffee-300">Мы ценим ваше мнение</p>
                 </motion.div>
               ) : (
@@ -130,7 +130,7 @@ export default function Reviews() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Ваше имя"
-                      className="input-turkish"
+                      className="w-full p-3 bg-dark-900 border border-gold-500/20 rounded-lg text-white focus:ring-2 focus:ring-gold-500 outline-none"
                       required
                     />
                   </div>
@@ -159,11 +159,11 @@ export default function Reviews() {
                       onChange={(e) => setText(e.target.value)}
                       placeholder="Расскажите о вашем опыте..."
                       rows={4}
-                      className="input-turkish resize-none"
+                      className="w-full p-3 bg-dark-900 border border-gold-500/20 rounded-lg text-white focus:ring-2 focus:ring-gold-500 outline-none resize-none"
                       required
                     />
                   </div>
-                  <button type="submit" className="btn-gold w-full">
+                  <button type="submit" className="w-full bg-gold-500 text-black py-3 rounded-lg font-bold hover:bg-gold-400 transition">
                     Отправить отзыв
                   </button>
                 </form>
