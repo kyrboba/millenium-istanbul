@@ -10,13 +10,26 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 
+    <!-- СКРЫТЫЕ ФОРМЫ ДЛЯ NETLIFY (не удалять!) -->
+
+    <!-- Форма для Бронирования -->
     <form name="cafe-booking" data-netlify="true" hidden>
       <input type="hidden" name="form-name" value="cafe-booking" />
       <input type="text" name="name" />
       <input type="tel" name="phone" />
       <input type="date" name="date" />
-      <input type="text" name="time" />
+      <input type="time" name="time" />
       <input type="text" name="guests" />
     </form>
+
+    <!-- Форма для Доставки -->
+    <form name="delivery-order" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="delivery-order" />
+      <input type="text" name="customer-name" />
+      <input type="text" name="address" />
+      <input type="text" name="order-details" />
+      <input type="tel" name="phone" />
+    </form>
+    
   </body>
 </html>
