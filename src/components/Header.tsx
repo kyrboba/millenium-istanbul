@@ -77,11 +77,11 @@ export default function Header() {
           {/* CTA & Mobile toggle */}
           <div className="flex items-center gap-3">
             <a
-              href="tel:+37312345678"
+              href="tel:+37368796105"
               className="hidden md:flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors text-sm font-medium"
             >
               <Phone size={16} />
-              <span>+373 123 456 78</span>
+              <span>+373 687 96 105</span>
             </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -121,7 +121,7 @@ export default function Header() {
                 className="flex items-center gap-2 px-4 py-3 text-gold-400 text-sm font-medium"
               >
                 <Phone size={16} />
-                +373 123 456 78
+                +373 687 96 105
               </a>
             </div>
           </motion.div>
