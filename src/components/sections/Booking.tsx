@@ -65,7 +65,15 @@ export default function Booking() {
                 <p className="text-coffee-300">Мы свяжемся с вами для подтверждения</p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                onSubmit={handleSubmit} 
+                name="cafe-booking" 
+                method="POST" 
+                data-netlify="true" 
+                className="space-y-6"
+              >
+                <input type="hidden" name="form-name" value="cafe-booking" />
+                
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Date */}
                   <div>
@@ -75,6 +83,7 @@ export default function Booking() {
                     </label>
                     <input
                       type="date"
+                      name="date"
                       value={date}
                       onChange={(e) => setDate(e.target.value)}
                       className="input-turkish"
@@ -89,6 +98,7 @@ export default function Booking() {
                       Количество гостей
                     </label>
                     <select
+                      name="guests"
                       value={guests}
                       onChange={(e) => setGuests(e.target.value)}
                       className="input-turkish"
@@ -106,6 +116,7 @@ export default function Booking() {
                     <Clock size={16} className="text-gold-400" />
                     Время
                   </label>
+                  <input type="hidden" name="time" value={time} />
                   <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
                     {timeSlots.map((slot) => (
                       <button
@@ -130,6 +141,7 @@ export default function Booking() {
                     <label className="block text-coffee-200 text-sm font-medium mb-2">Ваше имя</label>
                     <input
                       type="text"
+                      name="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Иван Петров"
@@ -145,6 +157,7 @@ export default function Booking() {
                     </label>
                     <input
                       type="tel"
+                      name="phone"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="+373 123 456 78"
