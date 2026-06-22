@@ -41,8 +41,8 @@ export default function Contacts() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-coffee-100 mb-1">Телефон</h3>
-                  <a href="tel:+37312345678" className="text-gold-400 hover:text-gold-300 transition-colors">
-                    +373 123 456 78
+                  <a href="tel:+37368796105" className="text-gold-400 hover:text-gold-300 transition-colors">
+                    +373 687 96 105
                   </a>
                   <p className="text-coffee-400 text-sm mt-1">Для бронирования и заказов</p>
                 </div>
@@ -73,8 +73,8 @@ export default function Contacts() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-coffee-100 mb-1">Email</h3>
-                  <a href="mailto:info@millenium.md" className="text-gold-400 hover:text-gold-300 transition-colors">
-                    info@millenium.md
+                  <a href="mailto:milleniumbasarabeasca@gmail.com" className="text-gold-400 hover:text-gold-300 transition-colors">
+                    milleniumbasarabeasca@gmail.com
                   </a>
                 </div>
               </div>
