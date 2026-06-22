@@ -117,7 +117,7 @@ export default function Header() {
                 </button>
               ))}
               <a
-                href="tel:+37312345678"
+                href="tel:+37368796105"
                 className="flex items-center gap-2 px-4 py-3 text-gold-400 text-sm font-medium"
               >
                 <Phone size={16} />
