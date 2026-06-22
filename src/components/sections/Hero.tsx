@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import Hookah3D from '../ui/Hookah3D';
 
 export default function Hero() {
   const scrollToMenu = () => {
@@ -84,15 +83,10 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* 3D Cup */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="hidden lg:block"
-          >
-            <Hookah3D />
-          </motion.div>
+          {/* Место для 3D модели закомментировано, чтобы не было ошибки */}
+          <div className="hidden lg:block">
+            {/* 3D модель временно отключена для исправления ошибки отображения */}
+          </div>
         </div>
       </div>
 
