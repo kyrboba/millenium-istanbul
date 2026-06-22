@@ -18,35 +18,47 @@ export default function Delivery({ cart }: { cart: any[] }) {
   };
 
   return (
-    <section id="delivery" className="py-20 bg-black text-white px-4">
+    <section id="delivery" className="py-20 bg-gradient-to-br from-dark-900 via-dark-800 to-bordeaux-950 text-white px-4">
       <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-        <div className="bg-gray-900 p-8 rounded-2xl border border-gray-800">
-          <h2 className="text-2xl font-bold text-yellow-500 mb-6">Ваша корзина</h2>
+        {/* Корзина */}
+        <div className="bg-dark-800/50 p-8 rounded-2xl border border-gold-500/10">
+          <h2 className="text-2xl font-bold text-gold-500 mb-6">Ваша корзина</h2>
           {cart.length === 0 ? (
-            <p className="text-gray-500">Корзина пуста</p>
+            <p className="text-coffee-400">Корзина пуста</p>
           ) : (
-            <ul className="space-y-2">
+            <ul className="space-y-4">
               {cart.map((item, i) => (
-                <li key={i} className="flex justify-between border-b border-gray-800 pb-2">
-                  <span>{item.name} (x{item.quantity})</span>
-                  <span>{item.price * item.quantity} лей</span>
+                <li key={i} className="flex justify-between border-b border-gold-500/10 pb-2">
+                  <span className="text-coffee-100">{item.name} (x{item.quantity})</span>
+                  <span className="text-gold-400 font-medium">{item.price * item.quantity} лей</span>
                 </li>
               ))}
             </ul>
           )}
         </div>
 
-        <div className="bg-gray-900 p-8 rounded-2xl border border-gray-800">
+        {/* Форма доставки */}
+        <div className="bg-dark-800/50 p-8 rounded-2xl border border-gold-500/10">
           {submitted ? (
-            <p className="text-green-500 font-bold">Заказ принят!</p>
+            <div className="text-center py-8">
+              <p className="text-green-500 font-bold text-xl">Заказ принят!</p>
+              <p className="text-coffee-300 mt-2">Мы скоро свяжемся с вами.</p>
+            </div>
           ) : (
             <form name="delivery-order" method="POST" data-netlify="true" onSubmit={handleSubmit} className="space-y-4">
               <input type="hidden" name="form-name" value="delivery-order" />
               <input type="hidden" name="order-details" value={JSON.stringify(cart)} />
-              <input type="text" name="address" placeholder="Адрес" required className="w-full p-3 bg-gray-800 rounded-lg text-white" />
-              <input type="text" name="customer-name" placeholder="Имя" required className="w-full p-3 bg-gray-800 rounded-lg text-white" />
-              <input type="tel" name="phone" placeholder="Телефон" required className="w-full p-3 bg-gray-800 rounded-lg text-white" />
-              <button type="submit" className="w-full bg-yellow-500 py-3 rounded-lg font-bold text-black">Оформить</button>
+              
+              <input type="text" name="address" placeholder="Адрес доставки" required className="w-full p-3 bg-dark-900 rounded-lg border border-gold-500/20 text-white focus:ring-2 focus:ring-gold-500 outline-none" />
+              <input type="text" name="customer-name" placeholder="Ваше имя" required className="w-full p-3 bg-dark-900 rounded-lg border border-gold-500/20 text-white focus:ring-2 focus:ring-gold-500 outline-none" />
+              <input type="tel" name="phone" placeholder="Телефон" required className="w-full p-3 bg-dark-900 rounded-lg border border-gold-500/20 text-white focus:ring-2 focus:ring-gold-500 outline-none" />
+              
+              <button 
+                type="submit" 
+                className="w-full bg-gold-500 py-3 rounded-lg font-bold text-black hover:bg-gold-400 transition transform hover:scale-105"
+              >
+                Оформить заказ
+              </button>
             </form>
           )}
         </div>
