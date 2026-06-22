@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-// Импортируем из текущей папки, так как теперь они соседи
 import { CartContext } from './CartContext'; 
 
 export default function Menu() {
@@ -11,7 +10,6 @@ export default function Menu() {
 
   const { addToCart } = context;
 
-  // Пример списка блюд
   const menuItems = [
     { id: 1, name: 'Кебаб', price: 80 },
     { id: 2, name: 'Лахмаджун', price: 60 },
@@ -28,7 +26,8 @@ export default function Menu() {
               <h3 className="text-xl font-bold mb-2">{item.name}</h3>
               <p className="text-yellow-500 mb-4">{item.price} лей</p>
               <button 
-                onClick={() => addToCart({ ...item, quantity: 1 })}
+                // Исправлено: передаем два аргумента (товар и количество)
+                onClick={() => addToCart(item, 1)} 
                 className="w-full bg-yellow-500 py-2 rounded-lg font-bold text-black hover:bg-yellow-400 transition"
               >
                 В корзину
